@@ -13,10 +13,10 @@ const app = (props) =>{
   //first having the current state itself
   //second having a function responsible for updating the state
   const [otherState, setOtherState]= useState('Some other value');
-  const switchNameHandler=()=>{
+  const switchNameHandler=(newAge)=>{
     setPersonState({
       persons:[
-        {name:"shruti",age:23},
+        {name:"shruti",age:newAge},
         {name:"karishma",age:20}
       ]
     })
@@ -25,13 +25,16 @@ const app = (props) =>{
     <div className="App">
       <h1>Hi, I'm a React App</h1>
       <p>This is really working!</p>
-      <button onClick={switchNameHandler}>Switch Name</button>
-      <Person name = {personState.persons[0].name} 
+      <button onClick={switchNameHandler.bind(this,23)}>Switch Name</button>
+      <Person 
+      name = {personState.persons[0].name} 
       age = {personState.persons[0].age}
+      clickReference= {switchNameHandler.bind(this,35)}
       />
        <Person
         name={personState.persons[1].name}
         age={personState.persons[1].age}
+        clickReference= {switchNameHandler}
       >
         My Hobbies: Racing
       </Person>
