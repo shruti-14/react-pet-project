@@ -21,6 +21,14 @@ const app = (props) =>{
       ]
     })
   }
+  const inputChangeNameHandler=(event)=>{
+    setPersonState({
+      persons:[
+        {name:"shruti",age:19},
+        {name:event.target.value,age:20}
+      ]
+    })
+  }
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
@@ -35,6 +43,7 @@ const app = (props) =>{
         name={personState.persons[1].name}
         age={personState.persons[1].age}
         clickReference= {switchNameHandler}
+        changed = {inputChangeNameHandler}
       >
         My Hobbies: Racing
       </Person>
